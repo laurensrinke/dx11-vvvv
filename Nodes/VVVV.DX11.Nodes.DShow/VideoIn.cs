@@ -133,6 +133,12 @@ namespace VVVV.DX11.Nodes.DShow
 		{
 			videoSource.DisplayPropertyPage(IntPtr.Zero);
 		}
+
+        public void SetProperties(int Fo, int Ex)
+        {
+            videoSource.SetCameraProperty(CameraControlProperty.Exposure, Ex, CameraControlFlags.Manual);
+            videoSource.SetCameraProperty(CameraControlProperty.Focus, Fo, CameraControlFlags.Manual);
+        }
 		
 		public void Stop()
 		{
@@ -174,11 +180,17 @@ namespace VVVV.DX11.Nodes.DShow
 		
 		[Input("Properties", IsBang = true, Order = 5)]
 		public IDiffSpread<bool> FInProperties;
-		
-		[Input("Update", IsBang = true, Order = 6)]
+
+        [Input("Update", IsBang = true, Order = 6)]
 		public IDiffSpread<bool> FInUpdate;
-		
-		[Input("Enable", Order = 7)]
+
+        [Input("Focus", DefaultValue = 0, Order = 7)]
+        public IDiffSpread<int> FInFocus;
+
+        [Input("Exposure", DefaultValue = -3, Order = 8)]
+        public IDiffSpread<int> FInExposure;
+
+        [Input("Enable", Order = 9)]
 		public IDiffSpread<bool> FInEnable;
 		
 		[Output("Texture Out", IsSingle = true)]
@@ -284,7 +296,9 @@ namespace VVVV.DX11.Nodes.DShow
 			if (FInUpdate.IsChanged && FInUpdate[0])
 			{
 				UpdateDevice();
-			}
+                
+                
+            }
 			
 			if (FInDevice.IsChanged || FInputs[0].IOObject.IsChanged || FInputs[1].IOObject.IsChanged || FInputs[2].IOObject.IsChanged)
 			{
@@ -317,7 +331,15 @@ namespace VVVV.DX11.Nodes.DShow
 					videoin.ShowProperties();
 				}
 			}
-			
+
+            if (FInFocus.IsChanged || FInExposure.IsChanged)
+            {
+                if (videoin != null && videoin.IsRunning())
+                {
+                    videoin.SetProperties(FInFocus[0],FInExposure[0]);
+                }
+            }
+
             FOutIsNewFrame[0] = isNewFrame;
             isNewFrame = false;
 			FOutIsValid[0] = (videoin != null && videoin.IsRunning());
@@ -401,7 +423,8 @@ namespace VVVV.DX11.Nodes.DShow
 			EnumManager.UpdateEnum(enumVideoFormat, FInputs[0].IOObject[0].Name, videoFormatName.Count > 0 ? videoFormatName.ToArray() : new string[] { "Default" });
 			EnumManager.UpdateEnum(enumResolution, FInputs[1].IOObject[0].Name, resolutionName.Count > 0 ? resolutionName.ToArray() : new string[] { "Default" });
 			EnumManager.UpdateEnum(enumFramerate, FInputs[2].IOObject[0].Name, framerateName.Count > 0 ? framerateName.ToArray() : new string[] { "Default" });
-			
+
+            
 			return valid;
 		}
 		
@@ -414,7 +437,8 @@ namespace VVVV.DX11.Nodes.DShow
 				videoin.OnFrameReady += videoin_OnFrameReady;
 				videoin.OnStopped += videoin_OnStopped;
 				videoin.Start();
-			}
+
+            }
 		}
 		
 		void videoin_OnStopped(object sender, EventArgs e)
