@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FeralTic", "FeralTic", "{5F0D7AF2-A20D-44E4-9E22-953026C1DCE4}"
 EndProject
@@ -58,6 +58,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVVV.DX11.Nodes.TexProc", "Nodes\VVVV.DX11.Nodes.TexProc\VVVV.DX11.Nodes.TexProc.csproj", "{6C60A4A9-2621-47A1-A45A-0735C2418529}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVVV.DX11.Nodes.Tests", "Nodes\VVVV.DX11.Nodes.Tests\VVVV.DX11.Nodes.Tests.csproj", "{8E287757-61C7-42E6-8908-67739FC2879B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVVV.DX11.Nodes.ThorCam", "Nodes\VVVV.DX11.Nodes.ThorCam\VVVV.DX11.Nodes.ThorCam.csproj", "{0781A035-99FB-4962-853F-05751050DCE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -256,6 +258,16 @@ Global
 		{8E287757-61C7-42E6-8908-67739FC2879B}.Release|x64.Build.0 = Release|x64
 		{8E287757-61C7-42E6-8908-67739FC2879B}.Release|x86.ActiveCfg = Release|x86
 		{8E287757-61C7-42E6-8908-67739FC2879B}.Release|x86.Build.0 = Release|x86
+		{0781A035-99FB-4962-853F-05751050DCE3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0781A035-99FB-4962-853F-05751050DCE3}.Debug|x64.ActiveCfg = Debug|x64
+		{0781A035-99FB-4962-853F-05751050DCE3}.Debug|x64.Build.0 = Debug|x64
+		{0781A035-99FB-4962-853F-05751050DCE3}.Debug|x86.ActiveCfg = Debug|x86
+		{0781A035-99FB-4962-853F-05751050DCE3}.Debug|x86.Build.0 = Debug|x86
+		{0781A035-99FB-4962-853F-05751050DCE3}.Release|Any CPU.ActiveCfg = Release|x86
+		{0781A035-99FB-4962-853F-05751050DCE3}.Release|x64.ActiveCfg = Release|x64
+		{0781A035-99FB-4962-853F-05751050DCE3}.Release|x64.Build.0 = Release|x64
+		{0781A035-99FB-4962-853F-05751050DCE3}.Release|x86.ActiveCfg = Release|x86
+		{0781A035-99FB-4962-853F-05751050DCE3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -280,6 +292,7 @@ Global
 		{597DA607-77EA-4009-9EA0-DB96F71F8077} = {34741DBE-D233-4D94-BDD9-1469F48C2F16}
 		{6C60A4A9-2621-47A1-A45A-0735C2418529} = {34741DBE-D233-4D94-BDD9-1469F48C2F16}
 		{8E287757-61C7-42E6-8908-67739FC2879B} = {34741DBE-D233-4D94-BDD9-1469F48C2F16}
+		{0781A035-99FB-4962-853F-05751050DCE3} = {34741DBE-D233-4D94-BDD9-1469F48C2F16}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {822F1698-9F99-4AE3-9231-8AE8C5B17068}

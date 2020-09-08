@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(SolutionDir)\vvvv.DX11.Build.targets" />
+  <PropertyGroup>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0781A035-99FB-4962-853F-05751050DCE3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VVVV.DX11.Nodes</RootNamespace>
+    <AssemblyName>VVVV.DX11.Nodes.ThorCam</AssemblyName>
+    <OutputPath>$(OutputPath)\nodes\plugins\kinect1\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\..\Deploy\Release\x64\packs\dx11\nodes\plugins\thorCam\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Thorlabs.TSI.ColorInterfaces">
+      <HintPath>Dependencies\x64\Thorlabs.TSI.ColorInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.ColorProcessor">
+      <HintPath>Dependencies\x64\Thorlabs.TSI.ColorProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.Core">
+      <HintPath>Dependencies\x64\Thorlabs.TSI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.CoreInterfaces">
+      <HintPath>Dependencies\x64\Thorlabs.TSI.CoreInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.Demosaicker">
+      <HintPath>Dependencies\x64\Thorlabs.TSI.Demosaicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.ImageData">
+      <HintPath>Dependencies\x64\Thorlabs.TSI.ImageData.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.ImageDataInterfaces">
+      <HintPath>Dependencies\x64\Thorlabs.TSI.ImageDataInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.TLCamera">
+      <HintPath>Dependencies\x64\Thorlabs.TSI.TLCamera.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.TLCameraInterfaces">
+      <HintPath>Dependencies\x64\Thorlabs.TSI.TLCameraInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="thorlabs_tsi_camera_sdk1_cli">
+      <HintPath>Dependencies\x64\thorlabs_tsi_camera_sdk1_cli.dll</HintPath>
+    </Reference>
+    <Reference Include="thorlabs_tsi_core_cli">
+      <HintPath>Dependencies\x64\thorlabs_tsi_core_cli.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Nodes\ThorCompactCam.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\VVVV.DX11.Core\VVVV.DX11.Core.csproj">
+      <Project>{71C0786D-2640-4E39-AA7B-83602F36F3A3}</Project>
+      <Name>VVVV.DX11.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FeralTic\Core\FeralTic.csproj">
+      <Project>{9EAD0F44-E6AA-4363-BE4D-D944C1D35044}</Project>
+      <Name>FeralTic</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> 
+  -->
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
